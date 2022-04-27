@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.0-M2</version>
+    </parent>
+
+    <groupId>xyz.vopen.framework</groupId>
+    <artifactId>mixmicro-modules-all</artifactId>
+    <version>${revison}</version>
+    <packaging>pom</packaging>
+
+
+    <name>Mixmicro Modules Framework</name>
+    <description>Provide a module isolation runtime framework base on Spring Boot Framework.</description>
+    <url>https://github.com/misselvexu/mixmicro-modules</url>
+
+    <properties>
+        <revison>1.0.0-SNAPSHOT</revison>
+
+        <!-- Test Container & Mockito Version -->
+        <testcontainers>1.17.1</testcontainers>
+        <mockito.version>4.4.0</mockito.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>misselvexu</id>
+            <name>Palmer.Xu</name>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/misselvexu/mixmicro-modules</url>
+        <connection>scm:git:git://github.com/misselvexu/mixmicro-modules.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/misselvexu/mixmicro-modules.git</developerConnection>
+    </scm>
+
+
+    <modules>
+        <module>modules-boot</module>
+    </modules>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>31.1-jre</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>4.0.3</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${testcontainers}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+    </build>
+
+
+    <repositories>
+        <repository>
+            <id>spring-libs-snapshot</id>
+            <url>https://repo.spring.io/libs-snapshot</url>
+        </repository>
+
+        <repository>
+            <id>local-maven-repo</id>
+            <url>file:///${project.basedir}/src/test/resources/local-maven-repo</url>
+        </repository>
+
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-plugins-release</id>
+            <url>https://repo.spring.io/plugins-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
